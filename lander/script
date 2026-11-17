@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+make clean
+make
+
+./app
+
+gnuplot position.gnu
+gnuplot gravity.gnu
