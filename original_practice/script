@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+g++ mvm_example.cpp -o ex
+
+./ex
+
+gnuplot plot_script

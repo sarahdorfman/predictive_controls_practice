@@ -1,0 +1,15 @@
+set terminal pngcairo size 1000,700
+set output "trajectory.png"
+
+rk4_file  = "CONT"
+disc_file = "DISC"
+
+set title "Trajectory: Continuous System using Runge-Kutta vs. Discrete"
+set grid
+set xlabel "x [m]"
+set ylabel "y [m]"
+set yrange [0:*]
+set xrange [0:1]
+
+plot rk4_file  using (($4 >= 0) ? $2 : 1/0):4 with lines lw 3 lc rgb "#1f77b4" title "Continuous (RK4)", \
+     disc_file using (($4 >= 0) ? $2 : 1/0):4 with linespoints pt 6 ps 1 lw 1 lc rgb "#d62728" title "Discrete"
